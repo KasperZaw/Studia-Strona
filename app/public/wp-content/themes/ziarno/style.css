@@ -1,0 +1,119 @@
+/*
+Theme Name: Ziarno
+Theme URI: http://studia-sklep.local/
+Description: Motyw potomny Twenty Twenty-Five dla palarni kawy „Ziarno”: własna paleta, typografia, wzorce bloków i poprawki dostępności.
+Template: twentytwentyfive
+Version: 1.0.0
+Requires at least: 6.7
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ziarno
+*/
+
+/* ---------- Widoczny fokus przy obsłudze klawiaturą ---------- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible,
+.wp-block-button__link:focus-visible,
+.wp-block-navigation-item__content:focus-visible,
+.wp-block-navigation__responsive-container-open:focus-visible,
+.wp-block-navigation__responsive-container-close:focus-visible {
+	outline: 3px solid var(--wp--preset--color--accent-1) !important;
+	outline-offset: 3px !important;
+	box-shadow: 0 0 0 6px var(--wp--preset--color--base);
+	border-radius: 4px;
+}
+/* Na ciemnym tle obrys jasny */
+.has-contrast-background-color :focus-visible,
+.has-accent-3-background-color :focus-visible,
+.has-accent-1-background-color :focus-visible {
+	outline-color: var(--wp--preset--color--base) !important;
+	box-shadow: 0 0 0 6px var(--wp--preset--color--contrast);
+}
+
+/* Link „Przejdź do treści” */
+.skip-link.screen-reader-text:focus {
+	background: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
+	font-weight: 700;
+}
+
+/* ---------- Nawigacja ---------- */
+.wp-block-navigation .current-menu-item > a,
+.wp-block-navigation [aria-current="page"] {
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 6px;
+	color: var(--wp--preset--color--accent-1);
+}
+.wp-block-navigation .wp-block-navigation-item__content {
+	padding: 0.35em 0.15em;
+}
+.site-header {
+	border-bottom: 1px solid var(--wp--preset--color--accent-6);
+}
+
+/* ---------- Karty i elementy wzorców ---------- */
+.ziarno-card {
+	border-radius: 16px;
+	overflow: hidden;
+	height: 100%;
+}
+.ziarno-card .wp-block-image img {
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+	width: 100%;
+}
+.ziarno-round img { border-radius: 16px; }
+.ziarno-icon img { width: 56px; height: 56px; }
+.ziarno-price { font-weight: 700; color: var(--wp--preset--color--accent-1); }
+
+/* Linki w stopce — większy obszar kliknięcia */
+.site-footer a { display: inline-block; padding-block: 0.3em; }
+.site-footer .wp-block-navigation .wp-block-navigation-item__content { padding-block: 0.3em; }
+
+/* Tabele czytelne na telefonie */
+.wp-block-table { overflow-x: auto; }
+.wp-block-table table { min-width: 480px; }
+.wp-block-table th { background: var(--wp--preset--color--accent-2); text-align: left; }
+.wp-block-table figcaption { color: var(--wp--preset--color--accent-4); }
+
+/* ---------- Baner cookies ---------- */
+.ziarno-cookie {
+	max-width: 46rem;
+	margin: 1rem auto;
+	width: calc(100% - 2rem);
+	box-sizing: border-box;
+	padding: 1.25rem 1.5rem;
+	background: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
+	border-radius: 16px;
+	box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	align-items: center;
+	font-size: var(--wp--preset--font-size--small);
+}
+.ziarno-cookie[hidden] { display: none; }
+.ziarno-cookie p { margin: 0; flex: 1 1 22rem; }
+.ziarno-cookie a { color: var(--wp--preset--color--base); font-weight: 700; }
+.ziarno-cookie button {
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+	border: 0;
+	border-radius: 999px;
+	padding: 0.75rem 1.5rem;
+	min-height: 44px;
+	background: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--contrast);
+}
+.ziarno-cookie button:hover { background: var(--wp--preset--color--accent-2); }
+
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+@media (max-width: 600px) {
+	.ziarno-hero h1 { font-size: 2.25rem !important; }
+	.ziarno-cookie { width: calc(100% - 1rem); padding: 1rem; }
+}
